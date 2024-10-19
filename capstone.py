@@ -8,9 +8,16 @@ Original file is located at
 """
 
 import pandas as pd
+
 import numpy as np
 
-df=pd.read_csv("/content/Book_1(a).csv", encoding='latin-1')
+"""# Import Dataset"""
+
+df=pd.read_csv("/content/Book_1.csv", encoding='latin-1')
+
+"""#  Describe Data
+
+"""
 
 df.head()
 
@@ -49,9 +56,17 @@ plt.ylabel('Average Rating')
 plt.xticks([])
 plt.show()
 
-"""# Get Feature Selection
-## Defining Target Variable (y) and Feature Variables (X)
-"""
+# Check the existing columns in your DataFrame
+print(df.columns)
+
+# Assuming there's a typo and the actual column name is 'Grade Points', correct it
+df_features = df[['Course Code', 'Marks (200)', 'Grade']].fillna('')
+
+# If the column truly doesn't exist, consider creating it or adjusting your logic.
+# For instance, if 'Grade Points' needs to be calculated based on other columns, do so before this line.
+# Example:
+df['Grade Points'] = df['Grade'].map({'A': 4, 'B': 3, 'C': 2, 'D': 1, 'F': 0}) # Replace with your actual grading scale
+print(df)
 
 df_features=df[['Course Code', 'Marks (200)', 'Grade', 'Grade Points']].fillna('')
 
@@ -61,11 +76,74 @@ df_features.shape
 
 df_features
 
+"""# Get Feature Selection
+## Defining Target Variable (y) and Feature Variables (X)
+"""
+
+# Check the existing columns in your DataFrame
+print(df.columns)
+
+# Assuming there's a typo and the actual column name is 'Grade Points', correct it
+df_features = df[['Course Code', 'Marks (200)', 'Grade']].fillna('')
+
+# If the column truly doesn't exist, consider creating it or adjusting your logic.
+# For instance, if 'Grade Points' needs to be calculated based on other columns, do so before this line.
+# Example:
+df['Grade Points'] = df['Grade'].map({'A': 4, 'B': 3, 'C': 2, 'D': 1, 'F': 0}) # Replace with your actual grading scale
+print(df)
+
+df_features=df[['Course Code', 'Marks (200)', 'Grade', 'Grade Points']].fillna('')
+
+"""Selected five existing filters to recommend movies, which can vary by project, such as vote counts, budget, language, and more."""
+
+df_features.shape
+
+df_features
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+ratings = df.groupby('Course Code').size()
+plt.figure(figsize=(10, 6))
+sns.histplot(ratings, bins=50, kde=False)
+plt.title('Number of  subject per  groupby Course Code')
+plt.xlabel('Number of subjects')
+plt.ylabel('Count')
+plt.show()
+
+df.head(1)
+
+#df['Movie_Genre'] = df['Movie_Genre']
+
+genre_popularity = df.groupby('Marks (200)')['Marks (200)'].mean().sort_values(ascending=False)
+
+plt.figure(figsize=(12, 8))
+
+sns.barplot(x=genre_popularity.index, y=genre_popularity.values, palette='viridis')
+plt.title('Average Movie Rating by Genre')
+plt.xlabel('Genre')
+plt.ylabel('Average Rating')
+plt.xticks([])
+plt.show()
+
 """# Data Modeling"""
 
 X = df_features['Marks (200)'].astype(str) + " " + df_features['Grade'] + " " + df_features['Grade Points'].astype(str)
 
 X
+
+"""# Get Feature Text Conversion to Tokens"""
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+tfidf=TfidfVectorizer()
+
+X.shape
+
+print(X)
+
+
 
 """# Get Similarity Score using Cosine Similarity
 ## Model Evaluation
@@ -75,7 +153,22 @@ cosine_similarity computes the L2-normalized dot product of vectors.Euclidean (L
 
 from sklearn.metrics.pairwise import cosine_similarity
 
-Similarity_score=cosine_similarity(X)
+import pandas as pd
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+# Assuming X is your list of strings
+# The input data contains only whitespaces, causing the error.
+# Replace with actual text data or modify the vectorizer's tokenization/stop words settings
+X = ['This is the first document.', 'This document is the second document.', 'And this is the third one.']
+# 1. Create a TfidfVectorizer object
+vectorizer = TfidfVectorizer()
+
+# 2. Fit the vectorizer to your data and transform it into a numerical representation
+X_tfidf = vectorizer.fit_transform(X)
+
+# 3. Calculate the cosine similarity using the numerical representation
+Similarity_score = cosine_similarity(X_tfidf)
 
 Similarity_score
 

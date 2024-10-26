@@ -1,4 +1,6 @@
 ****Elevate Your Academic Journey: A Personalized Elective Recommendation System****
+
+
 This repository presents a novel solution to a common challenge faced by students at Presidency University: selecting optimal electives. Our system leverages advanced algorithms and data analysis techniques to provide personalized elective recommendations, aligning with students' academic interests and preferences.
 
 Key Features:

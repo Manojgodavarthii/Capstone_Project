@@ -69,11 +69,8 @@ This project was conducted under the guidance of **Dr. Smitha Patil**, Assistant
 - **Godavarthi Naga Manoj Balaji**
 
 ### License
-This project is licensed under [MIT License](LICENSE).
+This project is licensed under [MIT License](License.txt).
 
 ### References
-For a detailed explanation, refer to the [final project report](final_report_2.pdf).
+For a detailed explanation, refer to the [final project report](final report_2.pdf).
 
----
-
-Feel free to modify the placeholders like `your-username` for the GitHub repository link or add any additional details specific to your project.

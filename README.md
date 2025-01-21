@@ -72,5 +72,5 @@ This project was conducted under the guidance of **Dr. Smitha Patil**, Assistant
 This project is licensed under [MIT License](License.txt).
 
 ### References
-For a detailed explanation, refer to the [final project report](final report_2.pdf).
+For a detailed explanation, refer to the [final project report](final_report_2.pdf).
 

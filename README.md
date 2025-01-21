@@ -1,44 +1,82 @@
-**Elevate Your Academic Journey: A Personalized Elective Recommendation System**
+Here’s a well-structured **README.md** text for your project, covering key aspects mentioned in the uploaded files:
 
+---
 
-This repository presents a novel solution to a common challenge faced by students at Presidency University: selecting optimal electives. Our system leverages advanced algorithms and data analysis techniques to provide personalized elective recommendations, aligning with students' academic interests and preferences.
+# Elective Recommendation System
 
-Key Features
+### Overview
+The **Elective Recommendation System** is an advanced course recommendation engine designed to assist students in selecting electives that align with their academic goals, interests, and career aspirations. This project leverages state-of-the-art machine learning techniques, text processing, and natural language processing (NLP) to deliver highly relevant and personalized course suggestions.
 
-Personalized Recommendations: Tailored suggestions based on students' past academic performance, interests, and course prerequisites.
-Intelligent Course Matching: Efficiently matches students with suitable electives, considering course capacity constraints and scheduling conflicts.
-Data-Driven Insights: Utilizes historical data to identify popular electives, emerging trends, and potential areas of interest.
-User-Friendly Interface: Intuitive web interface for students to explore electives, view recommendations, and submit preferences.
-How it Works
+### Features
+- **Four Recommendation Methods**:
+  1. **Cosine Similarity with Stemming**: Captures keyword-level similarity for efficient recommendations.
+  2. **Cosine Similarity without Stemming**: Retains linguistic nuances for precise matching.
+  3. **Collaborative Filtering**: Suggests courses based on user ratings and interactions.
+  4. **SBERT (Sentence-BERT)**: Extracts semantic similarity for context-aware recommendations.
+- **Evaluation Metrics**:
+  - Precision, Recall, F1 Score
+  - Mean Reciprocal Rank (MRR)
+  - Mean Average Precision (MAP)
+  - Mean Absolute Error (MAE), Mean Squared Error (MSE), and RMSE
+- **Visual Insights**: Visualizations to analyze course trends and system performance.
 
-Data Collection: Gathers relevant data on students' academic records, course catalogs, and historical enrollment patterns.
-Data Preprocessing: Cleans and prepares data for analysis, handling missing values and inconsistencies.
-Feature Engineering: Extracts meaningful features from the data, such as student GPA, major, and past elective choices.
-Model Training: Trains a machine learning model, such as a recommendation system or a classification model, to predict optimal elective choices.
-Recommendation Generation: Utilizes the trained model to generate personalized elective recommendations for each student.
-User Interface: Provides a web-based interface for students to view recommendations, explore elective details, and submit preferences.
-Technical Implementation
+### Methodology
+The project uses a dataset of 3,522 online courses, including attributes like course descriptions, skills, difficulty levels, ratings, and prerequisites. Key methodologies include:
+1. **Text Preprocessing**: Includes stemming, tokenization, and vectorization using TF-IDF or CountVectorizer.
+2. **Similarity Computation**: Measures the cosine similarity between course vectors and user input.
+3. **Collaborative Filtering**: Employs user-item interaction data for personalized recommendations.
+4. **SBERT**: Leverages sentence embeddings for high-precision recommendations.
 
-The codebase includes:
+### Dataset
+The dataset contains:
+- **Course Attributes**: Name, University, Difficulty Level, Ratings, Description, Skills, Prerequisites, and Average CGPA.
+- **Statistics**: Most courses are beginner or intermediate level, with average CGPAs ranging between 4.0 and 10.0.
 
-Data Exploration and Visualization:
-Imports necessary libraries (pandas, NumPy, Matplotlib, Seaborn)
-Loads the dataset ("Book_1.csv")
-Performs exploratory data analysis (EDA) using visualizations like histograms and bar plots to understand data distribution and trends.
-Data Preprocessing:
-Cleans and preprocesses the data to handle missing values and inconsistencies.
-Selects relevant features for model training.
-Model Training:
-Content-Based Filtering:
-Cosine Similarity: Measures the similarity between courses based on their features (e.g., course code, marks, grade, grade points). Courses with high cosine similarity are recommended.
-Trains a model to learn the relationships between courses and their features.
-Collaborative Filtering:
-Analyzes student-course interaction data to find similar students and recommend courses they have liked.
-User Interface:
-Develops a user-friendly web interface to display recommendations, course details, and allow user interaction.
-Future Enhancements
+### Results
+The system achieves high relevance in recommendations through:
+- Accurate similarity scores.
+- Scalable algorithms.
+- Evaluation across various metrics for precision and user satisfaction.
 
-Incorporate Additional Data Sources: Consider incorporating student preferences, course descriptions, and faculty expertise to improve recommendation accuracy.
-Explore Advanced Recommendation Techniques: Investigate hybrid recommendation systems or deep learning-based approaches for more sophisticated recommendations.
-Enhance User Interface: Improve the user interface to provide a seamless and intuitive experience for students.
-By leveraging this system, students can make informed decisions about their electives, enhancing their academic experience and future career prospects.
+### Tools and Libraries
+- **Programming Language**: Python
+- **Libraries**:
+  - `pandas`, `numpy`, `matplotlib`, `seaborn`
+  - `scikit-learn` for vectorization and similarity computations
+  - `nltk` for stemming and text preprocessing
+  - `Sentence-Transformers` for SBERT embeddings
+
+### Getting Started
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/elective-recommendation-system.git
+   cd elective-recommendation-system
+   ```
+2. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Run the Code**:
+   Open the notebook `capstone_project_3.ipynb` in Google Colab or any Jupyter environment and execute the cells.
+
+### Evaluation
+The system is evaluated using metrics such as Precision, Recall, F1 Score, and MRR. Visual insights further validate the relevance and accuracy of the recommendations.
+
+### Acknowledgments
+This project was conducted under the guidance of **Dr. Smitha Patil**, Assistant Professor at the School of Computer Science Engineering, Presidency University, Bengaluru.
+
+### Authors
+- **Golla Meghana**
+- **Munagala Naga Sameera**
+- **Ayush Chhetri**
+- **Godavarthi Naga Manoj Balaji**
+
+### License
+This project is licensed under [MIT License](LICENSE).
+
+### References
+For a detailed explanation, refer to the [final project report](final_report_2.pdf).
+
+---
+
+Feel free to modify the placeholders like `your-username` for the GitHub repository link or add any additional details specific to your project.

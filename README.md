@@ -1,6 +1,3 @@
-Here’s a well-structured **README.md** text for your project, covering key aspects mentioned in the uploaded files:
-
----
 
 # Elective Recommendation System
 
